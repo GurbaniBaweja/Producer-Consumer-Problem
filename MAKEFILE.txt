@@ -1,0 +1,12 @@
+prodcon: prodcon.o tands.o
+        g++ -pthread -o prod prodcon.o tands.o 
+
+prodcon.o: prodcon.cpp tands.cpp tands.h
+    g++ -c -pthread prodcon.cpp tands.cpp 
+
+tands.o: tands.cpp tands.h
+         g++ tands.cpp
+        
+
+clean:
+	@rm -f prodcon.o prodcon
